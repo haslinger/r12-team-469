@@ -5,6 +5,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
+      <th><%= model_class.human_attribute_name(:identifier) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:created_by) %></th>
       <th><%= model_class.human_attribute_name(:company_id) %></th>
@@ -14,7 +15,8 @@
   <tbody>
     <% @business_processes.each do |business_process| %>
       <tr>
-        <td><%= link_to business_process.name, business_process_path(business_process) %></td>
+        <td><%= link_to business_process.identifier, business_process_path(business_process) %></td>
+        <td><%= business_process.name %></td>       
         <td><%= created(business_process) %></td>
         <td><%= business_process.company.name %></td>
         <td>

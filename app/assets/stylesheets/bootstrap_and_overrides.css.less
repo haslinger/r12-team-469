@@ -32,6 +32,50 @@ body {
 // @linkColor: #ff0000;
 
 // width of definitions lists too small
+
+// begin overrides by Stranka
+dt,
+dd {
+  line-height: 15px;
+}
+.table th,
+.table td {
+  padding: 4px;
+}
+.form-horizontal .control-group {
+  margin-bottom: 4px;
+  *zoom: 1;
+  *zoom: 1;
+}
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+  height: 15px;
+}
+select,
+input[type="file"] {
+  height: 25px;
+}
+
+
+
+
+
+// end overrides Stranka
+
 .dl-horizontal dt {
   width: 220px;
   margin-right: 10px;
@@ -109,7 +153,7 @@ color: #fff;
 
 // Making all fonts smaller
 @baseFontSize: 12px;
-@baseLineHeight: 17px;
+@baseLineHeight: 14px;
 
 h1 { font-size: 26px; line-height: 32px; }
 h2 { font-size: 22px; line-height: 30px; }
@@ -129,7 +173,7 @@ h4 small { font-size: 11px; }
 @monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace;
 
 @baseFontFamily:        @sansFontFamily;
-@baseLineHeight:        20px;
+@baseLineHeight:        12px;
 @altFontFamily:         @serifFontFamily;
 
 @headingsFontFamily:    'PT Sans Narrow', sans-serif;

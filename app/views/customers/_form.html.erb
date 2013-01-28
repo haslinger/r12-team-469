@@ -8,33 +8,53 @@
     <%= f.association :company, :disabled => true, :selected => current_company.id %>
     <%= f.hidden_field :company_id, :value => current_company.id %>
   <% end %>
-  <%= f.input :title %>
-  <%= f.input :academictitle %>
-  <%= f.input :lastname %>
-  <%= f.input :firstname %>
-  <%= f.input :street %>
-  <%= f.input :zipcode %>
-  <%= f.input :city %>
-  <%= f.input :country %>
-  <%= f.input :phone %>
-  <%= f.input :fax %>
-  <%= f.input :mobil %>
-  <%= f.input :email %>
-  <%= f.input :taxnumber %>
-  <%= f.association :paymentterm, :label_method => :shorttext %>
-  <%= f.input :customergroup %>
-  <%= f.input :taxcode %>
-  <%= f.input :salesman %>
-  <%= f.input :comment %>
-  <%= f.input :deletionflag %>
-  <%= f.input :contactperson %>
-  <%= f.input :discount %>
-  <%= f.input :consignee %>
-  <%= f.association :currency, :label_method => :shorttext %>
-  <%= f.input :created_by %>
+  <ul class="nav nav-tabs" id="myTab">
+    <li class="active"><a href="#adress" data-toggle="tab"><%= @customer.lastname || 'New Customer' %></a></li>
+    <li><a href="#comment" data-toggle="tab"><%= model_class.human_attribute_name(:comment) %></a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div class="tab-pane active" id="adress">
+      <div class="well">
+        <dl class="dl-horizontal">  
+          <%= f.input :title %>
+          <%= f.input :academictitle %>
+          <%= f.input :lastname %>
+          <%= f.input :firstname %>
+          <%= f.input :street %>
+          <%= f.input :zipcode %>
+          <%= f.input :city %>
+          <%= f.input :country %>
+          <%= f.input :phone %>
+          <%= f.input :fax %>
+          <%= f.input :mobil %>
+          <%= f.input :email %>
+          <%= f.input :taxnumber %>
+          <%= f.association :paymentterm, :label_method => :shorttext %>
+          <%= f.input :customergroup %>
+          <%= f.input :taxcode %>
+          <%= f.input :salesman %>
+          <%= f.input :deletionflag %>
+          <%= f.input :contactperson %>
+          <%= f.input :discount %>
+          <%= f.input :consignee %>
+          <%= f.association :currency, :label_method => :shorttext %>
+          <%= f.input :created_by %>
+        </dl>
+      </div>
+    </div>
+    <div class="tab-pane" id="comment">
+      <div class="well">
+        <%= f.input :comment, :as => :textile_editor, input_html: {class: :broad} %>
+      </div>
+    </div>  
+  </div>          
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 customers_path, :class => 'btn' %>
   </div>
+  <% content_for :javascript do %>
+    <%= textile_editor_initialize %>
+  <% end %>   
 <% end %>

@@ -14,7 +14,7 @@
   <tbody>
     <% @units.each do |unit| %>
       <tr>
-        <td><%= unit.unit %></td>
+        <td><%= link_to unit.unit, unit_path(unit.id) %></td>
         <td><%= unit.shorttext %></td>
         <td><%= unit.isocode %></td>
         <td>

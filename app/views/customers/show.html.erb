@@ -3,59 +3,77 @@
   <h1><%=t '.title', :default => model_class.model_name.human %></h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:company_id) %>:</strong></dt>
-  <dd><%= @customer.company.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
-  <dd><%= @customer.title %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:academictitle) %>:</strong></dt>
-  <dd><%= @customer.academictitle %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:lastname) %>:</strong></dt>
-  <dd><%= @customer.lastname %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:firstname) %>:</strong></dt>
-  <dd><%= @customer.firstname %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:street) %>:</strong></dt>
-  <dd><%= @customer.street %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:zipcode) %>:</strong></dt>
-  <dd><%= @customer.zipcode %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:city) %>:</strong></dt>
-  <dd><%= @customer.city %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:country) %>:</strong></dt>
-  <dd><%= @customer.country %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:phone) %>:</strong></dt>
-  <dd><%= @customer.phone %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:fax) %>:</strong></dt>
-  <dd><%= @customer.fax %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:mobil) %>:</strong></dt>
-  <dd><%= @customer.mobil %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
-  <dd><%= @customer.email %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:taxnumber) %>:</strong></dt>
-  <dd><%= @customer.taxnumber %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:paymentterm_id) %>:</strong></dt>
-  <dd><%= @customer.paymentterm.shorttext %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:customergroup) %>:</strong></dt>
-  <dd><%= @customer.customergroup %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:taxcode) %>:</strong></dt>
-  <dd><%= @customer.taxcode %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:salesman) %>:</strong></dt>
-  <dd><%= @customer.salesman %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:comment) %>:</strong></dt>
-  <dd><%= @customer.comment %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:deletionflag) %>:</strong></dt>
-  <dd><%= @customer.deletionflag %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:contactperson) %>:</strong></dt>
-  <dd><%= @customer.contactperson %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:discount) %>:</strong></dt>
-  <dd><%= @customer.discount %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:consignee) %>:</strong></dt>
-  <dd><%= @customer.consignee %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:currency_id) %>:</strong></dt>
-  <dd><%= @customer.currency.shorttext %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:created_by) %>:</strong></dt>
-  <dd><%= created(@customer) %>
-</dl>
-<%= versioning_helper(@customer) %>
+<ul class="nav nav-tabs" id="myTab">
+  <li class="active"><a href="#adress" data-toggle="tab"><%= @customer.lastname %></a></li>
+  <li><a href="#description" data-toggle="tab"><%= model_class.human_attribute_name(:comment) %></a></li>
+  <li><a href="#versions" data-toggle="tab"><%= model_class.human_attribute_name(:versions) %></a></li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="adress">
+    <div class="well">
+      <dl class="dl-horizontal">
+        <dt><strong><%= model_class.human_attribute_name(:company_id) %>:</strong></dt>
+        <dd><%= @customer.company.name %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
+        <dd><%= @customer.title %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:academictitle) %>:</strong></dt>
+        <dd><%= @customer.academictitle %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:lastname) %>:</strong></dt>
+        <dd><%= @customer.lastname %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:firstname) %>:</strong></dt>
+        <dd><%= @customer.firstname %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:street) %>:</strong></dt>
+        <dd><%= @customer.street %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:zipcode) %>:</strong></dt>
+        <dd><%= @customer.zipcode %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:city) %>:</strong></dt>
+        <dd><%= @customer.city %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:country) %>:</strong></dt>
+        <dd><%= @customer.country %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:phone) %>:</strong></dt>
+        <dd><%= @customer.phone %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:fax) %>:</strong></dt>
+        <dd><%= @customer.fax %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:mobil) %>:</strong></dt>
+        <dd><%= @customer.mobil %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
+        <dd><%= @customer.email %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:taxnumber) %>:</strong></dt>
+        <dd><%= @customer.taxnumber %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:paymentterm_id) %>:</strong></dt>
+        <dd><%= @customer.paymentterm.shorttext %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:customergroup) %>:</strong></dt>
+        <dd><%= @customer.customergroup %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:taxcode) %>:</strong></dt>
+        <dd><%= @customer.taxcode %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:salesman) %>:</strong></dt>
+        <dd><%= @customer.salesman %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:comment) %>:</strong></dt>
+        <dd><%= @customer.comment %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:deletionflag) %>:</strong></dt>
+        <dd><%= @customer.deletionflag %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:contactperson) %>:</strong></dt>
+        <dd><%= @customer.contactperson %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:discount) %>:</strong></dt>
+        <dd><%= @customer.discount %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:consignee) %>:</strong></dt>
+        <dd><%= @customer.consignee %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:currency_id) %>:</strong></dt>
+        <dd><%= @customer.currency.shorttext %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:created_by) %>:</strong></dt>
+        <dd><%= created(@customer) %>
+      </dl>
+    </div>
+  </div>
+  <div class="tab-pane" id="comment">
+    <div class="well">
+      <%= textile(@customer.comment) %>
+    </div>
+  </div>  
+  <%= versioning_helper(@customer) %>
+</div>
+
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
               customers_path, :class => 'btn'  %>

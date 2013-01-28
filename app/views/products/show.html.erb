@@ -3,33 +3,49 @@
   <h1><%=t '.title', :default => model_class.model_name.human %></h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:company_id) %>:</strong></dt>
-  <dd><%= @product.company.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:productkey) %>:</strong></dt>
-  <dd><%= @product.productkey %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:shorttext) %>:</strong></dt>
-  <dd><%= @product.shorttext %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
-  <dd><%= @product.description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:productgroup) %>:</strong></dt>
-  <dd><%= @product.productgroup %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:eannumber) %>:</strong></dt>
-  <dd><%= @product.eannumber %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:taxcode) %>:</strong></dt>
-  <dd><%= @product.taxcode %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:deletionflag) %>:</strong></dt>
-  <dd><%= @product.deletionflag %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:baseunit) %>:</strong></dt>
-  <dd><%= @product.unit.shorttext %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:salesprice) %>:</strong></dt>
-  <dd><%= @product.salesprice %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:purchaseprice) %>:</strong></dt>
-  <dd><%= @product.purchaseprice %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:created_by) %>:</strong></dt>
-  <dd><%= created(@product) %>
-</dl>
-<%= versioning_helper(@product) %>
+<ul class="nav nav-tabs" id="myTab">
+  <li class="active"><a href="#shorttext" data-toggle="tab"><%= @product.shorttext %></a></li>
+  <li><a href="#description" data-toggle="tab"><%= model_class.human_attribute_name(:description) %></a></li>
+  <li><a href="#versions" data-toggle="tab"><%= model_class.human_attribute_name(:versions) %></a></li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="shorttext">
+    <div class="well">
+      <dl class="dl-horizontal">
+        <dt><strong><%= model_class.human_attribute_name(:company_id) %>:</strong></dt>
+        <dd><%= @product.company.name %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:productkey) %>:</strong></dt>
+        <dd><%= @product.productkey %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:shorttext) %>:</strong></dt>
+        <dd><%= @product.shorttext %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:productgroup) %>:</strong></dt>
+        <dd><%= @product.productgroup %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:eannumber) %>:</strong></dt>
+        <dd><%= @product.eannumber %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:taxcode) %>:</strong></dt>
+        <dd><%= @product.taxcode %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:deletionflag) %>:</strong></dt>
+        <dd><%= @product.deletionflag %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:baseunit) %>:</strong></dt>
+        <dd><%= @product.unit.shorttext %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:salesprice) %>:</strong></dt>
+        <dd><%= number_to_currency @product.salesprice %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:purchaseprice) %>:</strong></dt>
+        <dd><%= number_to_currency @product.purchaseprice %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:created_by) %>:</strong></dt>
+        <dd><%= created(@product) %>
+      </dl>
+    </div>
+  </div>
+  <div class="tab-pane" id="description">
+    <div class="well">
+      <%= textile(@product.description) %>
+    </div>
+  </div>  
+  <%= versioning_helper(@product) %>
+</div>
+
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
               products_path, :class => 'btn'  %>

@@ -11,3 +11,11 @@
   </ul>
   <% end %>
 </li>
+<li class="dropdown">
+  <a class="dropdown-toggle" if="comp" data-toggle="dropdown" href="#">
+    <span class="muted"><%= I18n.locale %></a>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="comp">
+      <li><%= link_to "en", "/?locale=en" %></li>
+      <li><%= link_to "de", "/?locale=de" %></li>
+  </ul>
+</li>

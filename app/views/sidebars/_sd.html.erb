@@ -1,0 +1,5 @@
+<ul class="nav nav-list">
+  <li class="nav-header">Master Data</li>  
+  <li <%= active("products") %>><%= link_to t("activerecord.models.product.other"), products_path %></li>
+  <li <%= active("customers") %>><%= link_to t("activerecord.models.customer.other"), customers_path %></li>
+</ul>

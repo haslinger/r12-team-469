@@ -1,17 +1,17 @@
 # Sample localization file for English. Add more files in this directory for other locales.
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
-en:
-  company: Company
-  company_id: Company
-  created_at: created_at
-  department: Department
-  department_id: Department
+de:
+  company: Mandant
+  company_id: Mandant
+  created_at: erfasst
+  department: Firma
+  department_id: Firma
   deputies: Deputies
   deputy: Deputy
   deputy_id: Deputy
   error: Fehler
-  function: Function
+  function: Funktion
   logout: Logout
   name: Name
   parent: Line Manager
@@ -27,57 +27,57 @@ en:
   
   date:
     abbr_day_names:
-    - Sun
-    - Mon
-    - Tue
-    - Wed
-    - Thu
-    - Fri
-    - Sat
+    - SO
+    - MO
+    - DI
+    - MI
+    - DO
+    - FR
+    - SA
     abbr_month_names:
     -
-    - Jan
+    - Jän
     - Feb
-    - Mar
+    - Mär
     - Apr
-    - May
+    - Mai
     - Jun
     - Jul
     - Aug
     - Sep
-    - Oct
+    - Okt
     - Nov
-    - Dec
+    - Dez
     day_names:
-    - Sunday
-    - Monday
-    - Tuesday
-    - Wednesday
-    - Thursday
-    - Friday
-    - Saturday
+    - Sonntag
+    - Montag
+    - Dienstag
+    - Mittwoch
+    - Donnerstag
+    - Freitag
+    - Samstag
     formats:
-      default: ! '%Y-%m-%d'
+      default: ! '%d-%m-%Y'
       long: ! '%B %d, %Y'
       short: ! '%b %d'
     month_names:
     -
-    - January
-    - February
-    - March
+    - Jänner
+    - Februar
+    - März
     - April
-    - May
-    - June
-    - July
+    - Mai
+    - Juni
+    - Juli
     - August
     - September
-    - October
+    - Oktober
     - November
-    - December
+    - Dezember
     order:
-    - :year
-    - :month
-    - :day
+    - :Jahr
+    - :Monat
+    - :Tag
   datetime:
     distance_in_words:
       about_x_hours:

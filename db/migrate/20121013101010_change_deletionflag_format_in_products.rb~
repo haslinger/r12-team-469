@@ -1,9 +1,0 @@
-class ChangeDeletionflagFormatInProducts < ActiveRecord::Migration
-  def up
-   change_column :product, :deletionflag, :boolean
-  end
-
-  def self.down
-   change_column :product, :deletionflag, :string
-  end
-end

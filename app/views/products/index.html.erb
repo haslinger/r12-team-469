@@ -16,7 +16,7 @@
   <tbody>
     <% @products.each do |product| %>
       <tr>
-        <td><%= product.productkey %></td>
+        <td><%= link_to product.productkey, product_path(product) %></td>
         <td><%= product.shorttext %></td>
         <td><%= product.productgroup %></td>
         <td><%= product.unit.shorttext %></td>

@@ -35,7 +35,12 @@ Aio::Application.routes.draw do
 
   resources :business_processes
 
-  resources :invoice_positions
+  resources :invoice_positions do
+    collection do
+      get 'calculate_value'
+
+    end
+  end
 
   resources :invoice_headers do
     collection do
@@ -43,8 +48,15 @@ Aio::Application.routes.draw do
       post 'create_aio'
 
     end
+  end  
+  
+  resources :products do
+    collection do
+      get 'new_aio_product'
+      post 'create_aio_product'
+    end
   end
-
+  
   devise_for :users
 
   namespace :admin do
@@ -56,12 +68,13 @@ Aio::Application.routes.draw do
   resources :companies
   resources :employments
 
-  resources :products
+
   resources :customers
 
   resources :paymentterms
   resources :currencies
   resources :units
-
-  root :to => "pages#read", :id => "1"
+  
+  root :to => "currencies#index"
+#  root :to => "pages#read", :id => "1"
 end

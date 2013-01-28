@@ -10,6 +10,7 @@
     <%= f.hidden_field :company_id, :value => current_company.id %>
   <% end %>
 
+  <%= f.input :identifier %>
   <%= f.input :name %>
   <%= f.input :description, :as => :textile_editor, input_html: {class: :broad} %>
 

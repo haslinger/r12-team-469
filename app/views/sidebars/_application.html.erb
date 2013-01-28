@@ -1,6 +1,50 @@
+<ul class="nav nav-tabs nav-stacked">
+<li class="dropdown">
+  <a href="#" data-toggle="dropdown" class="dropdown-toggle"><%= t("Master Data") %> <b class="caret"></b></a>
+  <ul class="dropdown-menu" id="menu1">
+    <li>
+        <a href="#">Product <i class="icon-arrow-right"></i></a>
+        <ul class="dropdown-menu sub-menu">
+            <li <%= active("List") %>><%= link_to icon_("credit-card") + t("activerecord.models.product.index"), create_aio_process_instances_path(:token => "23"), :method => :post %></li>  
+            <li <%= active("Edit Product") %>><%= link_to icon_("credit-card") + t("activerecord.models.product.edit"), create_aio_process_instances_path(:token => "8"), :method => :post %></li>  
+            <li><a href="#">Show</a></li>
+            <li class="divider"></li>
+            <li class="nav-header">Attention</li>
+            <li><a href="#">Delete</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#">Customer <i class="icon-arrow-right"></i></a>
+        <ul class="dropdown-menu sub-menu">
+            <li><a href="#">Create</a></li>
+            <li><a href="#">Edit</a></li>
+            <li><a href="#">Show</a></li>
+            <li class="divider"></li>
+            <li class="nav-header">Attention</li>
+            <li><a href="#">Delete</a></li>
+        </ul>
+    </li>    
+    <li><a href="#">Another action</a></li>
+    <li><a href="#">Something else here</a></li>
+    <li class="divider"></li>
+    <li><a href="#">Separated link</a></li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#">Menu</a>
+</li>
+<li class="dropdown">
+  <a href="#">Menu</a>
+</li>
+</ul>
+
+
+
+
+    
 <ul class="nav nav-list">
   <li class="nav-header">Application</li>
-  <li <%= active("Create Cash Sale") %>><%= link_to icon_("credit-card") + t("activerecord.models.invoice_header.new_aio"), create_aio_process_instances_path(:token => "13"), :method => :post %></li>
+  <li <%= active("Create Cash Sale") %>><%= link_to icon_("credit-card") + t("activerecord.models.invoice_header.new_aio"), create_aio_process_instances_path(:token => "Create Cash Sale"), :method => :post %></li>
   <li <%= active("My first Process") %>><%= link_to icon_("heart") + t("activerecord.models.invoice_header.my_first_process"), create_aio_process_instances_path(:token => "1"), :method => :post %></li>
   <li <%= active("invoice_header") %>><%= link_to icon_("credit-card") + t("activerecord.models.invoice_header.other"), invoice_headers_path %></li>
   <li <%= active("invoice_position") %>><%= link_to icons(["credit-card", "list-ol"]) + t("activerecord.models.invoice_position.other"), invoice_positions_path %></li>

@@ -5,7 +5,6 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:currency) %></th>
       <th><%= model_class.human_attribute_name(:shorttext) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
@@ -15,8 +14,7 @@
   <tbody>
     <% @currencies.each do |currency| %>
       <tr>
-        <td><%= link_to currency.id, currency_path(currency) %></td>
-        <td><%= currency.currency %></td>
+        <td><%= link_to currency.currency, currency_path(currency.id) %></td>
         <td><%= currency.shorttext %></td>
         <td><%=l currency.created_at %></td>
         <td>

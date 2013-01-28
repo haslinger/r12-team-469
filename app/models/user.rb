@@ -43,6 +43,7 @@ class User < ActiveRecord::Base
   end
 
   def in_company?(id)
+    debugger
     self.employments.any? {|emp| emp.company_id == id.to_i}
   end
 end

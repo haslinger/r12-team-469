@@ -20,3 +20,25 @@
 //= require dataTables/jquery.dataTables.bootstrap
 //= require jquery_nested_form
 //= require_tree .
+
+
+function calculate() {
+    var price = $('#invoice_position_price').val();
+    var quantity = $('#invoice_position_quantity').val();
+    $('#invoice_position_value').val(quantity * price);
+    
+}
+
+function calculate_value() {
+    var price = $('#invoice_position_price').val();
+    var quantity = $('#invoice_position_quantity').val();
+    
+    $.ajax({
+        url:"/invoice_positions/calculate_value",
+        data:'price=' + price + '&quantity=' + quantity,
+        dataType: 'script',
+        success: function(value) {
+        $('#invoice_position_value').val(parseInt(value));
+        }
+    });
+}

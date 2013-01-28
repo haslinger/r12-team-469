@@ -3,7 +3,7 @@ class ProcessInstance < ActiveRecord::Base
 
   validates_presence_of :company_id
   validates_presence_of :business_process_id
-
+  
   belongs_to :company
   belongs_to :business_process
 

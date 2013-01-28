@@ -12,10 +12,18 @@
           <li><%= link_to t("administration"), "/companies?menu=admin" %></li>
           <li><%= link_to t("processes"), "/business_processes?menu=processes" %></li>
           <li><%= link_to t("application"), "/invoice_headers?menu=application" %></li>
+          <li class="dropdown">
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle"><%= t("application") %> <b class="caret"></b></a>          
+            <ul class="dropdown-menu" id="menu1">
+              <li><%= link_to t("Sales"), "/invoice_headers?menu=sd" %></li>
+              <li><%= link_to t("Material Management"), "/invoice_headers?menu=mm" %></li>
+              <li <%= active("products") %>><%= link_to t("activerecord.models.product.other"), products_path %></li>      
+              <li <%= active("customers") %>><%= link_to t("activerecord.models.customer.other"), customers_path %></li>                      
+            </ul>
+          </li>
         </ul>
         <ul class="nav pull-right">
           <%= render "admin/dropdown" %>
-          <li><%= link_to "EN", "/?locale=en" %></li>
           <li><%= link_to icon_("signout") + t("logout"), destroy_user_session_path, :method => :delete, :title => t("logout") %></li>
         </ul>
       </div><!--/.nav-collapse -->

@@ -13,7 +13,7 @@
   <tbody>
     <% @paymentterms.each do |paymentterm| %>
       <tr>
-        <td><%= paymentterm.term %></td>
+        <td><%= link_to paymentterm.term, paymentterm_path(paymentterm.id) %></td>
         <td><%= paymentterm.shorttext %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

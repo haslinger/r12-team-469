@@ -1,6 +1,10 @@
 class CompaniesController < ApplicationController
   load_and_authorize_resource
 
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, :alert => exception.message, :locale => I18n.locale
+  end  
+  
   def create
     if @company.save
       redirect_to @company, notice: 'Company was successfully created.'

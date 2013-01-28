@@ -1,14 +1,14 @@
 <%- model_class = InvoicePosition -%>
 <%= bootstrap_error(@invoice_position, model_class ) %>
 
-<%= simple_form_for @invoice_position, :html => { :class => 'form-horizontal' } do |f| %>
+<%= simple_form_for @invoice_position, :html => { :class => 'form-horizontal' }, :remote => true do |f| %>
   <%= f.input :invoice_header_id, :disabled => true %>
   <%= f.input :textposition %>
   <%= f.association :product, :label_method => :shorttext %>
-  <%= f.input :quantity %>
+  <%= f.input :quantity, :input_html => { :onchange => "calculate_value()" } %>
   <%= f.association :unit, :label_method => :shorttext %>
   <%= f.input :discount %>
-  <%= f.input :value %>
+  <div id="value"><%= f.input :value %></div>
   <%= f.input :vatrate %>
   <%= f.input :price %>
   <%= f.input :base_price %>
